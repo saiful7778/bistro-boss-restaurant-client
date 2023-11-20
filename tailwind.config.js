@@ -13,6 +13,7 @@ export default {
       },
       colors: {
         accent: "#EEFF25",
+        "acc-text": "#D99904",
       },
     },
   },

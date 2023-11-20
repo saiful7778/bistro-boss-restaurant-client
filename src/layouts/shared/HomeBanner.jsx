@@ -15,7 +15,7 @@ const bannerBg = [
   { _id: "bnbg6", imgPath: bannerBg6, imgAlt: "banner background image 6" },
 ];
 
-const Banner = () => {
+const HomeBanner = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   useEffect(() => {
     const changeImgTimer = setInterval(() => {
@@ -62,18 +62,18 @@ const Banner = () => {
     </button>
   ));
   return (
-    <div>
+    <>
       <div className="w-full h-screen overflow-hidden relative">
         {renderbannerBg}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-4">
           {renderDots}
         </div>
       </div>
-      <div className="flex gap-4 items-center justify-center flex-wrap mt-4">
+      <div className="flex gap-4 items-center justify-center mt-4">
         {renderBannerThumb}
       </div>
-    </div>
+    </>
   );
 };
 
-export default Banner;
+export default HomeBanner;

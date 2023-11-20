@@ -16,8 +16,8 @@
 }
 
 .navbar {
-  @apply flex justify-between items-center gap-2 py-3 px-4 text-white fixed top-0 left-0 w-full z-50;
-  background-color: rgba(21, 21, 21, 0.5);
+  @apply flex justify-between items-center gap-2 py-3 px-4 text-white fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur;
+  background-color: rgba(21, 21, 21, 0.7);
 }
 .nav-link {
   @apply uppercase font-bold relative p-1;
@@ -37,4 +37,17 @@
 }
 .nav-link.active::before {
   @apply w-full h-full opacity-100 visible;
+}
+
+.swiper {
+  @apply w-full h-full pb-8;
+}
+.swiper-wrapper {
+  @apply w-full h-full mb-5;
+}
+.swiper-pagination-bullet {
+  @apply w-3 h-3;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply outline outline-offset-2 outline-sky-600;
 }
