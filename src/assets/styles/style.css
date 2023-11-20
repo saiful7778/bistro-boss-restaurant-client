@@ -9,7 +9,7 @@
 }
 
 .banner-bg {
-  @apply w-full h-full object-cover object-center absolute opacity-0 duration-300;
+  @apply w-full h-full object-cover object-center absolute opacity-0 duration-500;
 }
 .banner-bg.active {
   @apply opacity-100;

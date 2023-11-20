@@ -17,7 +17,14 @@ const bannerBg = [
 
 const Banner = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
-  //   useEffect(() => {}, []);
+  useEffect(() => {
+    const changeImgTimer = setInterval(() => {
+      setCurrentIdx((prop) => (prop + 1) % bannerBg.length);
+    }, 5000);
+    return () => {
+      clearInterval(changeImgTimer);
+    };
+  }, []);
   const renderbannerBg = bannerBg.map((banner, idx) => (
     <img
       key={banner._id}
@@ -47,7 +54,9 @@ const Banner = () => {
     <button onClick={() => setCurrentIdx(idx)} key={"dot" + idx} type="button">
       <div
         className={`w-4 h-4 shadow-xl rounded-full ${
-          currentIdx === idx ? "bg-sky-600" : "bg-white"
+          currentIdx === idx
+            ? "bg-sky-600 outline outline-offset-2 outline-sky-600"
+            : "bg-white"
         }`}
       ></div>
     </button>
