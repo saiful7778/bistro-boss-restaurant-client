@@ -61,7 +61,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className={`fixed top-0 min-h-screen trans-bg p-6 backdrop-blur text-white duration-500 ${
+        className={`fixed z-[1000] top-0 min-h-screen trans-bg p-6 backdrop-blur text-white duration-500 ${
           mobileMenu ? "right-0" : "-right-full"
         }`}
       >

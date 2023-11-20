@@ -8,8 +8,15 @@
   background-color: rgba(21, 21, 21, 0.5);
 }
 
+.banner-bg {
+  @apply w-full h-full object-cover object-center absolute opacity-0 duration-300;
+}
+.banner-bg.active {
+  @apply opacity-100;
+}
+
 .navbar {
-  @apply flex justify-between items-center gap-2 py-3 px-4 text-white;
+  @apply flex justify-between items-center gap-2 py-3 px-4 text-white fixed top-0 left-0 w-full z-50;
   background-color: rgba(21, 21, 21, 0.5);
 }
 .nav-link {
