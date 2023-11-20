@@ -1,4 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("./utility.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.trans-bg {
+  background-color: rgba(21, 21, 21, 0.5);
+}
+
+.navbar {
+  @apply flex justify-between items-center gap-2 py-3 px-4 text-white;
+  background-color: rgba(21, 21, 21, 0.5);
+}
+.nav-link {
+  @apply uppercase font-bold relative p-1;
+}
+.nav-link::before {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-accent inline-block invisible opacity-0 w-0 h-0 duration-300;
+  content: "";
+}
+.nav-link.pending {
+  @apply animate-pulse;
+}
+.nav-link.active {
+  @apply text-accent;
+}
+.nav-link:hover:before {
+  @apply w-full h-full opacity-100 visible;
+}
+.nav-link.active::before {
+  @apply w-full h-full opacity-100 visible;
+}

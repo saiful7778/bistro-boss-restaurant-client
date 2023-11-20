@@ -1,0 +1,8 @@
+@layer components {
+  .click-ani {
+    @apply duration-300;
+  }
+  .click-ani:active:focus {
+    @apply scale-90;
+  }
+}

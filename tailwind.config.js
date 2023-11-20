@@ -7,6 +7,13 @@ export default {
         inter: ["Inter", "sans-serif"],
         cinzel: ["Cinzel", "serif"],
       },
+      screens: {
+        // res: "768px",
+        res: "1024px",
+      },
+      colors: {
+        accent: "#EEFF25",
+      },
     },
   },
   plugins: [],
