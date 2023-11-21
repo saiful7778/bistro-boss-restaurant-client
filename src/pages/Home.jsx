@@ -1,15 +1,16 @@
 import HomeBanner from "../layouts/shared/HomeBanner";
-import featureImg1 from "../assets/img/slide1.jpg";
-import featureImg2 from "../assets/img/slide2.jpg";
-import featureImg3 from "../assets/img/slide3.jpg";
-import featureImg4 from "../assets/img/slide4.jpg";
-import featureImg5 from "../assets/img/slide5.jpg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import featureImg1 from "../assets/img/slide1.jpg";
+import featureImg2 from "../assets/img/slide2.jpg";
+import featureImg3 from "../assets/img/slide3.jpg";
+import featureImg4 from "../assets/img/slide4.jpg";
+import featureImg5 from "../assets/img/slide5.jpg";
+import backGroundImg from "../assets/img/chef-service.jpg";
 
 const Home = () => {
   return (
@@ -75,6 +76,28 @@ const Home = () => {
               />
             </SwiperSlide>
           </Swiper>
+        </div>
+        <div
+          className="w-full p-6 sm:p-8 bg-no-repeat bg-center bg-cover"
+          style={{ background: `url('${backGroundImg}')` }}
+        >
+          <div className="res:w-4/5 mx-auto text-center bg-white res:my-20 p-6 res:p-20">
+            <h3 className="font-cinzel text-4xl font-medium mb-4">
+              Bistro Boss
+            </h3>
+            <p className="text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus, libero accusamus laborum deserunt ratione dolor
+              officiis praesentium! Deserunt magni aperiam dolor eius dolore at,
+              nihil iusto ducimus incidunt quibusdam nemo.
+            </p>
+          </div>
+        </div>
+        <div className="text-center w-fit mx-auto my-6">
+          <p className="text-acc-text italic py-4">---Check it out---</p>
+          <h3 className="uppercase text-4xl py-3 border-y-4 border-gray-300">
+            FROM OUR MENU
+          </h3>
         </div>
       </main>
     </>
