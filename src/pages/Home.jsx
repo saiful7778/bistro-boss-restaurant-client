@@ -14,6 +14,7 @@ import backGroundImg from "../assets/img/chef-service.jpg";
 import Menu from "../components/Menu";
 import Title from "../components/utility/title";
 import Reviews from "../components/Reviews";
+import Footer from "../layouts/shared/Footer";
 
 const Home = () => {
   return (
@@ -103,6 +104,7 @@ const Home = () => {
           <Reviews />
         </div>
       </main>
+      <Footer />
     </>
   );
 };
