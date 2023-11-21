@@ -3,15 +3,22 @@ import PropTypes from "prop-types";
 const MenuItem = ({ itemData }) => {
   const { image, price, recipe, name } = itemData || {};
   return (
-    <div className="flex gap-2">
-      <figure className="rounded-tr-full rounded-b-full overflow-hidden">
-        <img src={image} alt="menu item image" />
-      </figure>
-      <div>
-        <h4>{name}</h4>
-        <p>{recipe}</p>
+    <div className="flex min-[380px]:flex-row flex-col gap-2 items-center min-[380px]:items-start">
+      <div className="w-28 h-28 shadow-lg rounded-tr-full rounded-b-full overflow-hidden">
+        <img
+          className="w-full h-full object-cover object-center"
+          src={image}
+          alt="menu item image"
+        />
       </div>
-      <h6>${price}</h6>
+      <div className="flex-1">
+        <div className="flex justify-between items-center gap-1">
+          <h4 className="font-cinzel text-xl font-medium">{name}</h4>
+          <div className="flex-1 border border-dashed border-gray-500"></div>
+          <h6 className="text-acc-text font-medium">${price}</h6>
+        </div>
+        <p className="text-sm leading-4 text-gray-500">{recipe}</p>
+      </div>
     </div>
   );
 };
