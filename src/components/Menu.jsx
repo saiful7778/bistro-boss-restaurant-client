@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { menuDataLoader } from "../myAPI";
 import MenuItem from "./MenuItem";
 import { useState } from "react";
+import Loading from "./Loading";
 
 const Menu = () => {
   const [loadCount, setLoadCount] = useState(6);
@@ -10,7 +11,7 @@ const Menu = () => {
     queryFn: () => menuDataLoader(loadCount),
   });
   if (isLoading) {
-    return <div>Loading data....</div>;
+    return <Loading />;
   }
   if (isError) {
     return <div>Error {error}</div>;

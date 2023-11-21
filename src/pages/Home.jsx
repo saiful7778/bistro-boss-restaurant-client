@@ -12,6 +12,7 @@ import featureImg4 from "../assets/img/slide4.jpg";
 import featureImg5 from "../assets/img/slide5.jpg";
 import backGroundImg from "../assets/img/chef-service.jpg";
 import Menu from "../components/Menu";
+import Title from "../components/utility/title";
 
 const Home = () => {
   return (
@@ -20,14 +21,7 @@ const Home = () => {
         <HomeBanner />
       </header>
       <main className="container res:w-4/5 w-full mx-auto my-16">
-        <div className="text-center w-fit mx-auto my-6">
-          <p className="text-acc-text italic py-4">
-            ---From 11:00am to 10:00pm---
-          </p>
-          <h3 className="uppercase text-4xl py-3 border-y-4 border-gray-300">
-            order online
-          </h3>
-        </div>
+        <Title tagText="From 11:00am to 10:00pm" titleText="order online" />
         <div className="mt-8 p-4 text-white font-cinzel text-4xl">
           <Swiper
             pagination={{ clickable: true }}
@@ -94,15 +88,16 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="text-center w-fit mx-auto my-6">
-          <p className="text-acc-text italic py-4">---Check it out---</p>
-          <h3 className="uppercase text-4xl py-3 border-y-4 border-gray-300">
-            FROM OUR MENU
-          </h3>
-        </div>
-        <div>
+        <Title tagText="Check it out" titleText="from our menu" />
+        <div className="my-16">
           <Menu />
         </div>
+        <div className="my-16 p-6 text-center bg-gray-900 text-white">
+          <h5 className="my-16 text-4xl font-semibold">
+            Call Us: +88 0192345678910
+          </h5>
+        </div>
+        <Title tagText="Should Try" titleText="chef recommends" />
       </main>
     </>
   );

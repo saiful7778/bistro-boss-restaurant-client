@@ -4,7 +4,7 @@ const MenuItem = ({ itemData }) => {
   const { image, price, recipe, name } = itemData || {};
   return (
     <div className="flex min-[380px]:flex-row flex-col gap-2 items-center min-[380px]:items-start">
-      <div className="w-28 h-28 shadow-lg rounded-tr-full rounded-b-full overflow-hidden">
+      <div className="w-28 h-28 drop-shadow-md rounded-tr-full rounded-b-full overflow-hidden">
         <img
           className="w-full h-full object-cover object-center"
           src={image}
