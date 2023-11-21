@@ -6,3 +6,12 @@
     @apply scale-90;
   }
 }
+
+@layer components {
+  .btn {
+    @apply click-ani uppercase py-2 px-4 bg-gray-200 text-acc-text font-medium rounded-lg border-b-4 border-acc-text;
+  }
+  .btn:hover {
+    @apply bg-gray-900 border-gray-500;
+  }
+}

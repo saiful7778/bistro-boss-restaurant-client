@@ -20,7 +20,7 @@ const HomeBanner = () => {
   useEffect(() => {
     const changeImgTimer = setInterval(() => {
       setCurrentIdx((prop) => (prop + 1) % bannerBg.length);
-    }, 5000);
+    }, 1000);
     return () => {
       clearInterval(changeImgTimer);
     };
@@ -40,10 +40,10 @@ const HomeBanner = () => {
       type="button"
     >
       <img
-        className={`w-36 ${
+        className={`w-36 hover:opacity-100 ${
           currentIdx === idx
             ? "ring-4 ring-opacity-80 ring-black ring-offset-4"
-            : ""
+            : "opacity-50"
         }`}
         src={bannerThumb.imgPath}
         alt={bannerThumb.imgAlt}

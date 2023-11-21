@@ -16,11 +16,8 @@ const Menu = () => {
   if (isError) {
     return <div>Error {error}</div>;
   }
-  const renderMenu = data?.result?.map((menu, idx) => (
-    <div key={menu._id}>
-      <p>{idx + 1}</p>
-      <MenuItem itemData={menu} />
-    </div>
+  const renderMenu = data?.result?.map((menu) => (
+    <MenuItem key={menu._id} itemData={menu} />
   ));
   return (
     <>
