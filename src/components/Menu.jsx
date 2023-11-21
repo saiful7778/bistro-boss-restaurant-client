@@ -16,7 +16,6 @@ const Menu = () => {
   if (isError) {
     return <div>Error {error}</div>;
   }
-  console.log(loadCount);
   const renderMenu = data?.result?.map((menu, idx) => (
     <div key={menu._id}>
       <p>{idx + 1}</p>

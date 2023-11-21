@@ -13,6 +13,7 @@ import featureImg5 from "../assets/img/slide5.jpg";
 import backGroundImg from "../assets/img/chef-service.jpg";
 import Menu from "../components/Menu";
 import Title from "../components/utility/title";
+import Reviews from "../components/Reviews";
 
 const Home = () => {
   return (
@@ -97,7 +98,10 @@ const Home = () => {
             Call Us: +88 0192345678910
           </h5>
         </div>
-        <Title tagText="Should Try" titleText="chef recommends" />
+        <Title tagText="What Our Clients Say" titleText="testimonials" />
+        <div className="res:p-4">
+          <Reviews />
+        </div>
       </main>
     </>
   );
