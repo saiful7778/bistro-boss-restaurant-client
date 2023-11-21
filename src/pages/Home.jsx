@@ -11,6 +11,7 @@ import featureImg3 from "../assets/img/slide3.jpg";
 import featureImg4 from "../assets/img/slide4.jpg";
 import featureImg5 from "../assets/img/slide5.jpg";
 import backGroundImg from "../assets/img/chef-service.jpg";
+import Menu from "../components/Menu";
 
 const Home = () => {
   return (
@@ -98,6 +99,9 @@ const Home = () => {
           <h3 className="uppercase text-4xl py-3 border-y-4 border-gray-300">
             FROM OUR MENU
           </h3>
+        </div>
+        <div>
+          <Menu />
         </div>
       </main>
     </>
