@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router-dom";
 import { LuMenuSquare, LuShoppingCart } from "react-icons/lu";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { useState } from "react";
 import SiteLogo from "@/components/SiteLogo";
-import { Button } from "keep-react";
+import { Avatar, Button, Popover } from "keep-react";
 import cn from "@/libs/cn";
+import useAuth from "@/hooks/useAuth";
 
 const navLinks = [
   { _id: "nv1", navName: "home", path: "/" },
@@ -16,7 +16,9 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const { user } = useAuth();
   const [mobileMenu, setMobileMenu] = useState(false);
+  const navigate = useNavigate();
 
   const renderNavLinks = navLinks?.map((nav) => (
     <li key={nav._id}>
@@ -33,7 +35,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed left-0 top-0 z-[100] flex w-full items-center justify-between gap-2 bg-gray-900/40 px-4 py-3 text-white shadow-md backdrop-blur">
+      <nav className="fixed left-0 top-0 z-[100] flex w-full items-center justify-between gap-2 bg-gray-900/40 p-2 text-white shadow-md backdrop-blur">
         <SiteLogo />
         <div className="flex items-center gap-2">
           <ul className="hidden items-center gap-2 lg:flex">
@@ -54,7 +56,36 @@ const Navbar = () => {
           >
             <LuMenuSquare size={25} />
           </Button>
-          <UserLoggedIn />
+
+          {user ? (
+            <Popover placement="bottom-end">
+              <Popover.Action className="p-1">
+                <Avatar size="md" shape="circle" />
+              </Popover.Action>
+              <Popover.Content className="z-20 flex items-center gap-3 rounded bg-white p-2 shadow">
+                <div>Hello</div>
+              </Popover.Content>
+            </Popover>
+          ) : (
+            <>
+              <Button
+                className="max-sm:hidden"
+                onClick={() => navigate("/authentication/sign-in")}
+                size="xs"
+                color="primary"
+              >
+                Sign in
+              </Button>
+              <Button
+                className="max-sm:hidden"
+                onClick={() => navigate("/authentication/sign-up")}
+                size="xs"
+                color="success"
+              >
+                Sign up
+              </Button>
+            </>
+          )}
         </div>
       </nav>
       <div
@@ -72,34 +103,27 @@ const Navbar = () => {
           <AiOutlineCloseSquare size={25} />
         </Button>
         <ul className="space-y-3 text-center">{renderNavLinks}</ul>
-        <div className="flex flex-col items-center gap-2">
-          <UserLoggedIn />
-          <UserLoggedOut />
+        <div className="mt-3 flex flex-col items-center gap-3">
+          {user === null && (
+            <>
+              <Button
+                size="xs"
+                onClick={() => navigate("/authentication/sign-in")}
+                color="primary"
+              >
+                Sign in
+              </Button>
+              <Button
+                size="xs"
+                onClick={() => navigate("/authentication/sign-up")}
+                color="success"
+              >
+                Sign up
+              </Button>
+            </>
+          )}
         </div>
       </div>
-    </>
-  );
-};
-
-const UserLoggedIn = () => {
-  return (
-    <>
-      <button className="click-ani" type="button">
-        <FaUserCircle size={30} />
-      </button>
-    </>
-  );
-};
-
-const UserLoggedOut = () => {
-  return (
-    <>
-      <button className="click-ani font-bold uppercase" type="button">
-        sign in
-      </button>
-      <button className="click-ani font-bold uppercase" type="button">
-        sign up
-      </button>
     </>
   );
 };

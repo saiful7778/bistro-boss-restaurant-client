@@ -1,6 +1,10 @@
 import { createContext, useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "@/libs/firebase";
 
 export const AuthContext = createContext(null);
@@ -8,6 +12,16 @@ export const AuthContext = createContext(null);
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(false);
+
+  const signIn = (email, pass) => {
+    setLoader(true);
+    return signInWithEmailAndPassword(auth, email, pass);
+  };
+
+  const signUp = (email, pass) => {
+    setLoader(true);
+    return createUserWithEmailAndPassword(auth, email, pass);
+  };
 
   useLayoutEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -20,7 +34,7 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loader }}>
+    <AuthContext.Provider value={{ user, loader, signUp, signIn }}>
       {children}
     </AuthContext.Provider>
   );
