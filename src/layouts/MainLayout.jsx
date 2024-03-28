@@ -8,12 +8,9 @@ const MainLayout = () => {
       <header>
         <Navbar />
       </header>
-      <div className="container p-2">
-        <h1 className="text-3xl font-bold">Main Layout</h1>
-        <main>
-          <Outlet />
-        </main>
-      </div>
+      <main className="container p-2">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
