@@ -1,3 +1,24 @@
+@import "keep-react/css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link {
+  @apply relative p-1 text-sm font-bold uppercase;
+}
+.nav-link::before {
+  @apply invisible absolute left-1/2 top-1/2 inline-block h-0 w-0 -translate-x-1/2 -translate-y-1/2 border border-accent opacity-0 duration-300;
+  content: "";
+}
+.nav-link.pending {
+  @apply animate-pulse;
+}
+.nav-link.active {
+  @apply text-accent;
+}
+.nav-link:hover:before {
+  @apply visible h-full w-full opacity-100;
+}
+.nav-link.active::before {
+  @apply visible h-full w-full opacity-100;
+}
