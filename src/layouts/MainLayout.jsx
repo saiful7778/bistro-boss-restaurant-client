@@ -1,3 +1,4 @@
+import Footer from "@/shared/Footer";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
@@ -9,6 +10,7 @@ const MainLayout = () => {
           <Outlet />
         </main>
       </div>
+      <Footer />
     </div>
   );
 };
