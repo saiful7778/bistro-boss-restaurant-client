@@ -1,5 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
-import featureImg1 from "@/assets/img/feature/slide1.jpg";
+import featureImg1 from "@/assets/img/category/slide1.jpg";
 import ProductItem from "@/components/ProductItem";
 
 const data = [

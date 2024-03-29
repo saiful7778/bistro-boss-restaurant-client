@@ -1,11 +1,12 @@
-import Feature from "@/sections/Feature";
 import backGroundImg from "@/assets/img/chef-service.jpg";
+import Categories from "@/sections/Categories";
+import Featured from "@/sections/Featured";
 import Recommends from "@/sections/Recommends";
 
 const Home = () => {
   return (
     <>
-      <Feature />
+      <Categories />
       <div
         className="relative my-16 h-[600px] w-full bg-cover bg-center bg-no-repeat p-6 sm:p-8"
         style={{ background: `url('${backGroundImg}')` }}
@@ -32,6 +33,7 @@ const Home = () => {
         </h5>
       </div>
       <Recommends />
+      <Featured />
     </>
   );
 };

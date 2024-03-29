@@ -1,9 +1,10 @@
+import cn from "@/libs/cn";
 import PropTypes from "prop-types";
 
-const SectionTitle = ({ tagText, titleText }) => {
+const SectionTitle = ({ className, tagText, titleText }) => {
   return (
-    <div className="mx-auto my-16 w-fit text-center">
-      <p className="text-acc-text py-4 italic"> ---{tagText}--- </p>
+    <div className={cn("mx-auto my-16 w-fit text-center", className)}>
+      <p className="py-4 italic text-acc-text"> ---{tagText}--- </p>
       <h3 className="border-y-4 border-gray-300 py-3 text-4xl uppercase">
         {titleText}
       </h3>
@@ -11,6 +12,7 @@ const SectionTitle = ({ tagText, titleText }) => {
   );
 };
 SectionTitle.propTypes = {
+  className: PropTypes.string,
   tagText: PropTypes.string,
   titleText: PropTypes.string,
 };
