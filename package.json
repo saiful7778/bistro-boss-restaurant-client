@@ -11,6 +11,8 @@
     "deploy": "vite build && firebase deploy"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.28.9",
+    "@tanstack/react-query-devtools": "^5.28.10",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "firebase": "^10.9.0",
@@ -28,6 +30,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.28.6",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.5.0",
