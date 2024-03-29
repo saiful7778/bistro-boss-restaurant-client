@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { auth } from "@/libs/firebase";
 
@@ -23,6 +24,10 @@ const AuthContextProvider = ({ children }) => {
   const signUp = (email, pass) => {
     setLoader(true);
     return createUserWithEmailAndPassword(auth, email, pass);
+  };
+
+  const signOutAccount = () => {
+    return signOut(auth);
   };
 
   const handleGoogle = () => {
@@ -43,7 +48,7 @@ const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, loader, signUp, signIn, handleGoogle }}
+      value={{ user, loader, signUp, signIn, handleGoogle, signOutAccount }}
     >
       {children}
     </AuthContext.Provider>
