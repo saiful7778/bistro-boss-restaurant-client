@@ -1,7 +1,8 @@
 import { Button } from "keep-react";
 import PropTypes from "prop-types";
 
-const ProductItem = ({ image, title, des }) => {
+const ProductItem = ({ inputData }) => {
+  const { image, title, recipe } = inputData;
   return (
     <div className="text-center">
       <figure className="h-64 w-full overflow-hidden">
@@ -13,7 +14,7 @@ const ProductItem = ({ image, title, des }) => {
       </figure>
       <div className="space-y-2 bg-amber-100 p-4">
         <h6 className="text-2xl font-semibold">{title}</h6>
-        <p className="text-sm text-gray-600">{des}</p>
+        <p className="text-sm text-gray-600">{recipe}</p>
         <Button className="btn mx-auto" size="xs" color="primary">
           ADD TO CART
         </Button>
@@ -23,6 +24,7 @@ const ProductItem = ({ image, title, des }) => {
 };
 
 ProductItem.propTypes = {
+  inputData: PropTypes.object,
   image: PropTypes.string,
   title: PropTypes.string,
   des: PropTypes.string,
