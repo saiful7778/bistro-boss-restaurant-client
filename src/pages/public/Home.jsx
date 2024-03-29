@@ -2,6 +2,7 @@ import backGroundImg from "@/assets/img/chef-service.jpg";
 import Categories from "@/sections/Categories";
 import Featured from "@/sections/Featured";
 import Recommends from "@/sections/Recommends";
+import Testimonial from "@/sections/Testimonial";
 
 const Home = () => {
   return (
@@ -34,6 +35,7 @@ const Home = () => {
       </div>
       <Recommends />
       <Featured />
+      <Testimonial />
     </>
   );
 };
