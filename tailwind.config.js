@@ -15,6 +15,7 @@ export default {
       colors: {
         "dark-01": "#151515",
         accent: "#EEFF25",
+        "acc-text": "#D99904",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
