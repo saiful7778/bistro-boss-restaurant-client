@@ -24,7 +24,6 @@ const Testimonial = () => {
   if (isError) {
     return <Error />;
   }
-
   return (
     <>
       <SectionTitle tagText="What Our Clients Say" titleText="testimonials" />

@@ -1,6 +1,7 @@
 import backGroundImg from "@/assets/img/chef-service.jpg";
 import Categories from "@/sections/Categories";
 import Featured from "@/sections/Featured";
+import Menu from "@/sections/Menu";
 import Recommends from "@/sections/Recommends";
 import Testimonial from "@/sections/Testimonial";
 
@@ -28,6 +29,7 @@ const Home = () => {
         </div>
         <div className="absolute inset-0 z-10 h-full w-full bg-gray-900/40 backdrop-blur-sm" />
       </div>
+      <Menu />
       <div className="my-16 bg-gray-900 p-6 text-center text-white">
         <h5 className="my-16 text-4xl font-semibold">
           Call Us: +88 0192345678910
