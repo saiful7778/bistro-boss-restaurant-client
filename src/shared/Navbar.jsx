@@ -6,6 +6,7 @@ import SiteLogo from "@/components/SiteLogo";
 import { Avatar, Button, Popover } from "keep-react";
 import cn from "@/libs/cn";
 import useAuth from "@/hooks/useAuth";
+import Swal from "sweetalert2";
 
 const navLinks = [
   { _id: "nv1", navName: "home", path: "/" },
@@ -16,9 +17,20 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, signOutAccount } = useAuth();
   const [mobileMenu, setMobileMenu] = useState(false);
   const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      await signOutAccount();
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        text: err,
+      });
+    }
+  };
 
   const renderNavLinks = navLinks?.map((nav) => (
     <li key={nav._id}>
@@ -43,7 +55,7 @@ const Navbar = () => {
           </ul>
           <Button className="relative" shape="circle" color="success" size="sm">
             <LuShoppingCart />
-            <span className="bg-primary-600 absolute -right-1 -top-1 z-50 rounded-full px-2 text-xs">
+            <span className="absolute -right-1 -top-1 z-50 rounded-full bg-primary-600 px-2 text-xs">
               0
             </span>
           </Button>
@@ -60,10 +72,12 @@ const Navbar = () => {
           {user ? (
             <Popover placement="bottom-end">
               <Popover.Action className="p-1">
-                <Avatar size="md" shape="circle" />
+                <Avatar size="md" shape="circle" img={user?.photoURL} />
               </Popover.Action>
               <Popover.Content className="z-20 flex items-center gap-3 rounded bg-white p-2 shadow">
-                <div>Hello</div>
+                <Button onClick={handleSignOut} color="error" size="xs">
+                  Sign Out
+                </Button>
               </Popover.Content>
             </Popover>
           ) : (
