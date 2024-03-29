@@ -1,15 +1,15 @@
 import FeatureItem from "@/components/FeatureItem";
 import SectionTitle from "@/components/SectionTitle";
-import featureImg1 from "@/assets/img/feature/slide1.jpg";
-import featureImg2 from "@/assets/img/feature/slide2.jpg";
-import featureImg3 from "@/assets/img/feature/slide3.jpg";
-import featureImg4 from "@/assets/img/feature/slide4.jpg";
+import categoryImg1 from "@/assets/img/category/slide1.jpg";
+import categoryImg2 from "@/assets/img/category/slide2.jpg";
+import categoryImg3 from "@/assets/img/category/slide3.jpg";
+import categoryImg4 from "@/assets/img/category/slide4.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Feature = () => {
+const Categories = () => {
   return (
     <>
       <SectionTitle
@@ -40,28 +40,28 @@ const Feature = () => {
         >
           <SwiperSlide>
             <FeatureItem
-              imgPath={featureImg1}
+              imgPath={categoryImg1}
               text="Salads"
               path="/menu/salads"
             />
           </SwiperSlide>
           <SwiperSlide>
             <FeatureItem
-              imgPath={featureImg2}
+              imgPath={categoryImg2}
               text="soups"
               path="/menu/soups"
             />
           </SwiperSlide>
           <SwiperSlide>
             <FeatureItem
-              imgPath={featureImg3}
+              imgPath={categoryImg3}
               text="pizzas"
               path="/menu/pizzas"
             />
           </SwiperSlide>
           <SwiperSlide>
             <FeatureItem
-              imgPath={featureImg4}
+              imgPath={categoryImg4}
               text="desserts"
               path="/menu/desserts"
             />
@@ -72,4 +72,4 @@ const Feature = () => {
   );
 };
 
-export default Feature;
+export default Categories;
