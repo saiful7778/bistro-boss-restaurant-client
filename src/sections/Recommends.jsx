@@ -1,40 +1,33 @@
 import SectionTitle from "@/components/SectionTitle";
-import featureImg1 from "@/assets/img/category/slide1.jpg";
 import ProductItem from "@/components/ProductItem";
-
-const data = [
-  {
-    id: 1,
-    image: featureImg1,
-    title: "Caeser Salad",
-    des: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-  },
-  {
-    id: 2,
-    image: featureImg1,
-    title: "Caeser Salad",
-    des: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-  },
-  {
-    id: 3,
-    image: featureImg1,
-    title: "Caeser Salad",
-    des: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-  },
-];
+import useAxios from "@/hooks/useAxios";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
 
 const Recommends = () => {
+  const axios = useAxios();
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["recommends"],
+    queryFn: async () => {
+      const { data } = await axios.get("/menus/offered", {
+        params: { limit: 3 },
+      });
+      return data.data;
+    },
+  });
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (isError) {
+    return <Error />;
+  }
   return (
     <>
       <SectionTitle tagText="Should Try" titleText="chef recommends" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-8">
-        {data.map((ele) => (
-          <ProductItem
-            key={ele.id}
-            image={ele.image}
-            title={ele.title}
-            des={ele.des}
-          />
+        {data.map((ele, idx) => (
+          <ProductItem key={"offered" + idx} inputData={ele} />
         ))}
       </div>
     </>
