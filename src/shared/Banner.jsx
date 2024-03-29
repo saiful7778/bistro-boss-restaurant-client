@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import bannerBg1 from "@/assets/img/banner/01.jpg";
-import bannerBg2 from "@/assets/img/banner/02.jpg";
-import bannerBg3 from "@/assets/img/banner/03.png";
-import bannerBg4 from "@/assets/img/banner/04.jpg";
-import bannerBg5 from "@/assets/img/banner/05.png";
-import bannerBg6 from "@/assets/img/banner/06.png";
+import bannerBg1 from "@/assets/img/banner/banner-01.jpg";
+import bannerBg2 from "@/assets/img/banner/banner-02.jpg";
+import bannerBg3 from "@/assets/img/banner/banner-03.jpg";
+import bannerBg4 from "@/assets/img/banner/banner-04.jpg";
+import bannerBg5 from "@/assets/img/banner/banner-05.jpg";
+import bannerBg6 from "@/assets/img/banner/banner-06.jpg";
 import cn from "@/libs/cn";
 
 const bannerBg = [
@@ -30,7 +30,7 @@ const HomeBanner = () => {
 
   return (
     <>
-      <div className="relative mx-auto h-[70vh] w-full overflow-hidden lg:w-3/4">
+      <div className="relative mx-auto h-screen w-full overflow-hidden ">
         {bannerBg.map((banner, idx) => (
           <img
             key={banner._id}
@@ -54,7 +54,7 @@ const HomeBanner = () => {
                   "size-4 rounded-full shadow-xl",
                   currentIdx === idx
                     ? "bg-sky-600 outline outline-offset-2 outline-sky-600"
-                    : "bg-white",
+                    : "bg-gray-50",
                 )}
               ></div>
             </button>
