@@ -1,5 +1,6 @@
 import Feature from "@/sections/Feature";
 import backGroundImg from "@/assets/img/chef-service.jpg";
+import Recommends from "@/sections/Recommends";
 
 const Home = () => {
   return (
@@ -25,6 +26,12 @@ const Home = () => {
         </div>
         <div className="absolute inset-0 z-10 h-full w-full bg-gray-900/40 backdrop-blur-sm" />
       </div>
+      <div className="my-16 bg-gray-900 p-6 text-center text-white">
+        <h5 className="my-16 text-4xl font-semibold">
+          Call Us: +88 0192345678910
+        </h5>
+      </div>
+      <Recommends />
     </>
   );
 };
