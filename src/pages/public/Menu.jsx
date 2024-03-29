@@ -1,6 +1,7 @@
 import PageBanner from "@/components/PageBanner";
 import backGroundImg from "@/assets/img/chef-service.jpg";
 import SectionTitle from "@/components/SectionTitle";
+import Offered from "@/sections/menus/Offered";
 
 const Menu = () => {
   return (
@@ -12,6 +13,7 @@ const Menu = () => {
       />
       <div className="container p-2">
         <SectionTitle titleText="TODAY'S OFFER" tagText="Don't miss" />
+        <Offered />
       </div>
     </>
   );
