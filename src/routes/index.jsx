@@ -1,13 +1,17 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 // layouts
 import MainLayout from "@/layouts/MainLayout";
 import AuthLayout from "@/layouts/AuthLayout";
 // public pages
 import Home from "@/pages/public/Home";
-import SignIn from "@/pages/authentication/SignIn";
-import SignUp from "@/pages/authentication/SignUp";
 import AuthenticationRoute from "./AuthenticationRoute";
-import Menu from "@/pages/public/Menu";
+import SuspenseProvider from "@/components/SuspenseProvider";
+
+const Menu = lazy(() => import("@/pages/public/Menu"));
+const SignIn = lazy(() => import("@/pages/authentication/SignIn"));
+const SignUp = lazy(() => import("@/pages/authentication/SignUp"));
 
 const route = createBrowserRouter([
   {
@@ -20,7 +24,11 @@ const route = createBrowserRouter([
       },
       {
         path: "menu",
-        element: <Menu />,
+        element: (
+          <SuspenseProvider>
+            <Menu />
+          </SuspenseProvider>
+        ),
       },
     ],
   },
@@ -28,7 +36,9 @@ const route = createBrowserRouter([
     path: "/authentication",
     element: (
       <AuthenticationRoute>
-        <AuthLayout />
+        <SuspenseProvider>
+          <AuthLayout />
+        </SuspenseProvider>
       </AuthenticationRoute>
     ),
     children: [
