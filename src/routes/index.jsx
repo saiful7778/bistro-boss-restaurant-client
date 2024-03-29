@@ -7,6 +7,7 @@ import Home from "@/pages/public/Home";
 import SignIn from "@/pages/authentication/SignIn";
 import SignUp from "@/pages/authentication/SignUp";
 import AuthenticationRoute from "./AuthenticationRoute";
+import Menu from "@/pages/public/Menu";
 
 const route = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const route = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "menu",
+        element: <Menu />,
       },
     ],
   },

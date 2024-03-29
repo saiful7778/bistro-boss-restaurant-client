@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { LuMenuSquare, LuShoppingCart } from "react-icons/lu";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { useState } from "react";
@@ -10,10 +10,9 @@ import Swal from "sweetalert2";
 
 const navLinks = [
   { _id: "nv1", navName: "home", path: "/" },
-  { _id: "nv3", navName: "contact us", path: "/contact" },
-  { _id: "nv2", navName: "dashboard", path: "/dashboard" },
-  { _id: "nv4", navName: "our menu", path: "/our_menu" },
-  { _id: "nv5", navName: "our shop", path: "/our_shop" },
+  { _id: "nv2", navName: "contact us", path: "/contact" },
+  { _id: "nv3", navName: "our menu", path: "/menu" },
+  { _id: "nv4", navName: "our shop", path: "/shop" },
 ];
 
 const Navbar = () => {
@@ -74,8 +73,19 @@ const Navbar = () => {
               <Popover.Action className="p-1">
                 <Avatar size="md" shape="circle" img={user?.photoURL} />
               </Popover.Action>
-              <Popover.Content className="z-20 flex items-center gap-3 rounded bg-white p-2 shadow">
-                <Button onClick={handleSignOut} color="error" size="xs">
+              <Popover.Content className="z-[110] rounded bg-white p-2 shadow">
+                <Link
+                  className="mb-2 block rounded px-2 py-1 hover:bg-gray-300"
+                  to="/admin/dashboard"
+                >
+                  Dashboard
+                </Link>
+                <Button
+                  className="w-full"
+                  onClick={handleSignOut}
+                  color="error"
+                  size="xs"
+                >
                   Sign Out
                 </Button>
               </Popover.Content>

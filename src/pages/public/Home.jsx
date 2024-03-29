@@ -7,7 +7,7 @@ import Testimonial from "@/sections/Testimonial";
 
 const Home = () => {
   return (
-    <>
+    <main className="container p-2">
       <Categories />
       <div
         className="relative my-16 h-[600px] w-full bg-cover bg-center bg-no-repeat p-6 sm:p-8"
@@ -38,7 +38,7 @@ const Home = () => {
       <Recommends />
       <Featured />
       <Testimonial />
-    </>
+    </main>
   );
 };
 

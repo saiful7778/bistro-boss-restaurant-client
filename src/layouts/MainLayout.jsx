@@ -11,9 +11,7 @@ const MainLayout = () => {
         <Navbar />
         {location.pathname === "/" && <HomeBanner />}
       </header>
-      <main className="container p-2">
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
     </div>
   );
