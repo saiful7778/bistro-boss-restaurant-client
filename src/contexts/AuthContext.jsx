@@ -1,9 +1,11 @@
 import { createContext, useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "@/libs/firebase";
 
@@ -23,6 +25,12 @@ const AuthContextProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, pass);
   };
 
+  const handleGoogle = () => {
+    setLoader(true);
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
   useLayoutEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -34,7 +42,9 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loader, signUp, signIn }}>
+    <AuthContext.Provider
+      value={{ user, loader, signUp, signIn, handleGoogle }}
+    >
       {children}
     </AuthContext.Provider>
   );
