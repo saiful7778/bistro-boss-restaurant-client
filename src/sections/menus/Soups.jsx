@@ -4,12 +4,12 @@ import MenuItem from "@/components/MenuItem";
 import useAxios from "@/hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 
-const Offered = () => {
+const Soups = () => {
   const axios = useAxios();
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["offered"],
+    queryKey: ["soup"],
     queryFn: async () => {
-      const { data } = await axios.get("/menus/offered");
+      const { data } = await axios.get("/menus/soup");
       return data.data;
     },
   });
@@ -20,12 +20,12 @@ const Offered = () => {
     return <Error />;
   }
   return (
-    <div className="mb-16 grid grid-cols-1 gap-6 p-4 md:grid-cols-2">
+    <div className="my-16 grid grid-cols-1 gap-6 p-4 md:grid-cols-2">
       {data.map((ele, idx) => (
-        <MenuItem key={"offered-menu" + idx} inputData={ele} />
+        <MenuItem key={"soup-menu" + idx} inputData={ele} />
       ))}
     </div>
   );
 };
 
-export default Offered;
+export default Soups;
