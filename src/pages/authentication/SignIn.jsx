@@ -1,4 +1,5 @@
 import bannerImage from "@/assets/img/authentication-banner.png";
+import SocialAuth from "@/components/SocialAuth";
 import { Input } from "@/components/formik/Input";
 import Password from "@/components/formik/Password";
 import useAuth from "@/hooks/useAuth";
@@ -6,13 +7,14 @@ import { loginSchema } from "@/libs/schemas/auth";
 import { Form, Formik } from "formik";
 import { Button, Spinner } from "keep-react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SignIn = () => {
-  const { signIn } = useAuth();
+  const { signIn, handleGoogle } = useAuth();
   const [spinner, setSpinner] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const initialValues = {
     email: "",
@@ -40,6 +42,25 @@ const SignIn = () => {
       resetForm();
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const { user } = await handleGoogle();
+      Swal.fire({
+        icon: "success",
+        title: user.displayName,
+        text: "Account successfully logged in!",
+      });
+      navigate(location.state ? location.state.from.pathname : "/");
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        text: err,
+      });
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <div className="w-full md:w-1/2">
@@ -85,6 +106,8 @@ const SignIn = () => {
             Create a New account
           </Link>
         </p>
+        <p className="my-4 text-center">Or sign in with</p>
+        <SocialAuth handleGoogle={handleGoogleSignIn} />
       </div>
     </>
   );
