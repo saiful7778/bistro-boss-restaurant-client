@@ -6,6 +6,7 @@ import AuthLayout from "@/layouts/AuthLayout";
 import Home from "@/pages/public/Home";
 import SignIn from "@/pages/authentication/SignIn";
 import SignUp from "@/pages/authentication/SignUp";
+import AuthenticationRoute from "./AuthenticationRoute";
 
 const route = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ const route = createBrowserRouter([
   },
   {
     path: "/authentication",
-    element: <AuthLayout />,
+    element: (
+      <AuthenticationRoute>
+        <AuthLayout />
+      </AuthenticationRoute>
+    ),
     children: [
       {
         path: "sign-in",

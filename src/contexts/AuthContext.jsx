@@ -18,7 +18,7 @@ const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [userDetails, setUserDetails] = useState(null);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const signIn = (email, pass) => {
     setLoader(true);
@@ -31,6 +31,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const signOutAccount = () => {
+    setLoader(true);
     return signOut(auth);
   };
 
